@@ -1,0 +1,63 @@
+<<<<<<< HEAD
+/* Global variable declaration */
+int ExampleData, ServoPos;
+int Light;
+
+/* Read ExampleData via Rte_Call_ExampleSWC_ReadExampleData() API */
+#define Rte_Call_ExampleSWC_ReadExampleData() ExampleData
+/* Write ExampleData via Rte_Call_ExampleSWC_WriteExampleData(arg1) API */
+#define Rte_Call_ExampleSWC_WriteExampleData(arg1) ExampleData = arg1
+
+
+#define Rte_Call_Low_Beam_SWC_ReadLightData() Light
+#define Rte_Call_Low_Beam_SWC_WriteLightData(arg) Light = arg // 0-off, 1-on, 2-auto
+
+
+#define Rte_Call_Servo_MotorSWC_ReadServoAngle() Light
+#define Rte_Call_Servo_MotorSWC_WriteServoAngle(arg) Light = arg // 0-off, 1-on, 2-auto
+=======
+
+#include <stdint.h>
+
+/* Global variable declaration */
+extern unsigned short int Step_u;
+extern bool driveMode_b;
+extern unsigned short int DriveInput_u;
+extern unsigned short int DirFlag_u;
+extern bool EmergencyFlag_b;
+extern bool HandBrake_b ; 
+extern bool ParkDirect_b;
+extern unsigned short int DutyCycle_i;
+extern unsigned short int SendDCY_i;
+extern uint16_t ServoAngle;
+extern uint16_t leftSteering;
+extern uint16_t rightSteering;
+extern unsigned int AnalogData_i;
+
+#define Rte_Call_DCMotorSWC_ReadStep() Step_u
+#define Rte_Call_DCMotorSWC_WriteStep(STP) Step_u = STP
+#define Rte_Call_Comm_HandSWC_ReadDriveMode() driveMode_b
+#define Rte_Call_Comm_HandSWC_WriteDriveMode(DVM) driveMode_b = DVM 
+#define Rte_Call_Comm_HandSWC_ReadDriveInput() DriveInput_u
+#define Rte_Call_Comm_HandSWC_WriteDriveInputFWD(DI) DriveInput_u = DI
+#define Rte_Call_Comm_HandSWC_ReadDirFlag() DirFlag_u
+#define Rte_Call_Comm_HandSWC_WriteDirFlag(DIF) DirFlag_u = DIF 
+#define Rte_Call_ParkPilotSWC_ReadEmergencyFlag() EmergencyFlag_b
+#define Rte_Call_ParkPilotSWC_WriteEmergencyFlag(EFL) EmergencyFlag_b = EFL
+#define Rte_Call_DCMotorSWC_ReadHandBrake() HandBrake_b
+#define Rte_Call_DCMotorSWC_WriteHandBrake(HBK) HandBrake_b = HBK
+#define Rte_Call_ParkPilotSWC_ReadDutyCycle() DutyCycle_i
+#define Rte_Call_ParkPilotSWC_WriteDutyCycle(DCY) DutyCycle_i = DCY
+#define Rte_Call_DCMotorSWC_ReadSendDCY() SendDCY_i
+#define Rte_Call_DCMotorSWC_WriteSendDCY(DC) SendDCY_i = DC
+#define Rte_Call_Servo_MotorSWC_ReadServoAngle() ServoAngle
+#define Rte_Call_Servo_MotorSWC_WriteServoAngle(SA) ServoAngle = SA
+#define Rte_Call_Comm_HandSWC_ReadLeftSteering() leftSteering
+#define Rte_Call_Comm_HandSWC_WriteLeftSteering(LS) leftSteering = LS
+#define Rte_Call_Comm_HandSWC_ReadRightSteering() rightSteering
+#define Rte_Call_Comm_HandSWC_WriteRightSteering(RS) rightSteering = RS
+#define Rte_Call_IOHandSWC_ReadAnalogData() AnalogData_i;
+#define Rte_Call_IOHandSWC_WriteAnalogData(AD) AnalogData_i = AD;
+
+
+>>>>>>> 8f943e7dde637491caba97161ca53db07348d25e

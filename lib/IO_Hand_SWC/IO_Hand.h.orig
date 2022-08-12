@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+#define low_beam_light 13 //D13
+=======
+
+
+#include <Arduino.h>
+#include "Rte.h"
+#define Ena 6
+
+void servoInit();
+void readAngle();
+
+
+#include <Arduino.h>
+#include "Rte.h"
+#define Ena 6
+
+
+void Definition();
+void readPinData();
+void FlashData();
+void read_sensors_1();
+void read_sensors_2();
+void motor_direction();
+int out_sensors();
+void store_light();
+
+struct senzori{
+  int sw_distance = 0; 
+};
+
+extern struct senzori us0, us1, us2;
+>>>>>>> 8f943e7dde637491caba97161ca53db07348d25e

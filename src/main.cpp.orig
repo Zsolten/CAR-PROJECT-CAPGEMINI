@@ -1,0 +1,70 @@
+#include <TaskScheduler.h>
+
+#include <Comm_Hand.h>
+#include <DC_Motor.h>
+#include <Flasher.h>
+#include <IO_Hand.h>
+#include <Park_Pilot.h>
+#include <Servo_Motor.h>
+#include <Rte.h>
+
+#define PERIOD 20
+
+#define PERIOD1 20
+#define PERIOD2 500
+#define PERIOD3 10
+// Scheduler
+Scheduler ts;
+void taskFunctions20ms();
+<<<<<<< HEAD
+void test();
+
+//Task tBlink1(PERIOD *TASK_MILLISECOND,TASK_FOREVER, &taskFunctions20ms, &ts ,true);
+Task tPrototype(PERIOD * TASK_MILLISECOND, TASK_FOREVER, &taskFunctions20ms, &ts, true);
+=======
+
+Task tBlink1(PERIOD1 *TASK_MILLISECOND,TASK_FOREVER, &taskFunctions20ms, &ts ,true);
+>>>>>>> origin/main
+Task tBlink2(PERIOD3 *TASK_MILLISECOND, TASK_FOREVER, &readAngle, &ts, true);
+ 
+
+void setup() {
+  // put your setup code here, to run once:
+  Definition();
+  servoInit();
+  flasherInit();
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  ts.execute();
+}
+
+void taskFunctions20ms() {
+  DrivState();
+  commHand();
+//first we read data from IO 
+  readPinData();
+//send it to parkpilot 
+  transfer();
+  //send duty cycle for processing to DC_Motor_SWC
+  SetValDutyCycle();
+  //send processed data to IO for flashing 
+  FlashData();
+  driveMode();
+  readAngle();
+<<<<<<< HEAD
+  //check if flasher is needed to be on/off
+  flasher_mode_selector();
+  flasher();
+  //check if low beam needed to be on/off
+  low_beam_mode_selector();
+}
+
+
+
+=======
+}
+>>>>>>> origin/main
